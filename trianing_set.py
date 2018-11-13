@@ -5,8 +5,6 @@ import numpy as np
 from PIL import Image
 
 EigenFace=cv2.face.EigenFaceRecognizer_create(15)
-FisherFace=cv2.face.FisherFaceRecognizer_create(5)
-LBPHFace=cv2.face.LBPHFaceRecognizer_create(2, 2, 7, 7)
 path='dataset'
 
 def getImagesWithID(path):
@@ -28,9 +26,6 @@ Ids,faces=getImagesWithID(path)
 print('Training.......')
 EigenFace.train(faces, Ids)
 EigenFace.save('Recogniser/trainingDataEigan.xml')
-
-LBPHFace.train(faces, Ids)
-LBPHFace.save('Recogniser/trainingDataLBPH.xml')
 
 print('All files Saved')
 
